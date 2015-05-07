@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+        }
+        img{
+            width: 600px;
+            height: 300px;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        ol{
+            position: absolute;
+            right:5px;
+            bottom: 15px;
+        }
+        #list{
+            width: 600px;
+            overflow: hidden;
+            margin: 150px;
+            position: relative;
+            height: 300px;
+        }
+        ul#ul{
+            width: 3600px;
+            position: absolute;
+            height: 300px;
+            top: 0;
+        }
+        ul li{
+            float: left;
+        }
+        ol li{
+            width: 15px;
+            height: 15px;
+            background: white;
+            float: left;
+            margin-right:  10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        .clearfix{
+            clear: both;
+        }
+        .spotlight{
+            background: orange;
+        }
+        a{
+            position: absolute;
+
+        }
+        .arrow{
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            z-index: 2;
+            color: #fff;
+            height: 40px;
+            width: 40px;
+            display: none;
+            background: rgba(0,0,0,0.2);
+            top: 130px;
+        }
+        .arrow:hover{
+            background: rgba(0, 0, 0, 0.5);
+        }
+        #list:hover .arrow{
+            display: block;
+        }
+        #prev{
+            left: 20px;
+        }
+        #next{
+            right: 20px;
+        }
+    </style>
+    <script src="scripts/addLoadEvent.js"></script>
+    <script>
+        function slider(){
+       // window.onload=function(){
+            var ul=document.getElementById("ul");
+            var ol=document.getElementById("index");
+            var olis=ol.getElementsByTagName("li");
+            var prev=document.getElementById("prev");
+            var next=document.getElementById("next");
+            var list=document.getElementById("list");
+            var index=1;
+            var animated=false;
+            var timer;
+            function showButton(){
+                for(var i=0;i<olis.length;i++){
+                    if(olis[i].className=="spotlight"){
+                        olis[i].className="";
+                        break;
+                    }
+                }
+                olis[index-1].className="spotlight";
+            }
+
+            function animate(_offset){
+                if(_offset==0){
+                    return;
+                }
+                animated=true;
+                var time=300;
+                var interval=10;
+                var speed=_offset/(time/interval);
+                var left=parseInt(ul.style.left)+_offset;
+                function go(){
+                    if((speed<0&&parseInt(ul.style.left)>left)||(speed>0&&parseInt(ul.style.left)<left)){
+                        ul.style.left=parseInt(ul.style.left)+speed+"px";
+                        setTimeout(go,interval);
+                    }else{
+                        ul.style.left=left+"px";
+                        if(left>-600){
+                            ul.style.left=-2400+"px";
+                        }
+                        if(left<-2400){
+                            ul.style.left=-600+"px";
+                        }
+                        animated=false;
+                    }
+                }
+                go();
+
+            }
+            function play(){
+                 timer=setTimeout(function(){
+                    next.onclick();
+                    play();
+                },3000);
+            }
+            function stop(){
+                clearTimeout(timer);
+            }
+
+            prev.onclick=function(){
+                if(animated){
+                    return false;
+                }
+                animate(600);
+                if(index==1){
+                    index=4
+                }else{
+                    index--;
+                }
+                showButton();
+            }
+            next.onclick=function(){
+                if(animated){
+                    return false;
+                }
+                animate(-600);
+                if(index==4){
+                    index=1;
+                }else{
+                    index++;
+                }
+                showButton();
+            };
+
+        for(var i=0;i<olis.length;i++){
+           olis[i].onclick=function(){
+               if(animated){
+                   return false;
+               }
+               var myIndex=parseInt(this.getAttribute("index"));
+               var offset=-600*(myIndex-index);
+               animate(offset);
+               index=myIndex;
+               showButton();
+           }
+        }
+            list.onmouseover=stop;
+            list.onmouseout=play;
+            play();
+       // }
+        }
+        addLoadEvent(slider);
+    </script>
+</head>
+<body>
+    <div id="list">
+        <ul id="ul" style="left: -600px;">
+            <li><img src="4.jpg" /></li>
+            <li ><img src="1.jpg" /></li>
+            <li><img src="2.jpg" /></li>
+            <li><img src="3.jpg" /></li>
+            <li><img src="4.jpg" /></li>
+            <li><img src="1.jpg" /></li>
+        </ul>
+        <div class="clearfix"></div>
+        <div>
+            <ol id="index">
+                <li class="spotlight" index="1"></li>
+                <li index="2"></li>
+                <li index="3"></li>
+                <li index="4"></li>
+            </ol>
+        </div>
+        <a href="javascript:void(0);" id="prev" class="arrow">&lt;</a>
+        <a href="javascript:void(0);" id="next" class="arrow">&gt;</a>
+    </div>
+</body>
+</html>
