@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload=function(){
+            timeOut();
+        }
+            function timeOut(){
+            var nowTime=new Date();
+            var endTime=new Date("2015/10/1,12:12:12");
+            var leftTime=parseInt((endTime.getTime()-nowTime.getTime())/1000);
+            var d=parseInt(leftTime/(60*60*24));
+            var h=parseInt(leftTime/(60*60)%24);
+            var m=parseInt(leftTime/60%60);
+            var s=parseInt(leftTime%60);
+                if(s<10){
+                    s="0"+s;
+                }
+            document.getElementById("time").innerHTML="抢购还剩:"+d+"天"+h+"小时"+m+"分钟"+s+"秒";
+                if(leftTime<=0){
+                    document.getElementById("time").innerHTML="限时抢已结束";
+                }
+                setTimeout(timeOut,1000);
+            }
+
+    </script>
+</head>
+<body>
+    <h1 id="time"></h1>
+</body>
+</html>
