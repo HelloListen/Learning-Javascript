@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #demo{
+            display:block;
+            width: 400px;
+            height: 255px;
+            margin: 50px;
+            position: relative;
+            border: 1px solid #cccccc;
+        }
+        #small-box{
+            position: relative;
+            z-index: 1;
+        }
+        #float-box{
+            width: 160px;
+            height: 120px;
+            position: absolute;
+            background: #ffffcc;
+            border: 1px solid #cccccc;
+            opacity: 0.5;
+            filter:alpha(opacity=50);
+            display:none;
+        }
+        #mark{
+            position: absolute;
+            background: #fff;
+            display: block;
+            width: 400px;
+            height: 255px;
+            z-index: 10;
+            opacity: 0;
+            cursor: move;
+            filter:alpha(opacity=0);
+        }
+        #big-box{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 460px;
+            width: 400px;
+            height: 300px;
+            border: 1px solid #cccccc;
+            z-index: 1;
+            overflow: hidden;
+        }
+        #big-box img{
+            position: absolute;
+            z-index: 5;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var mark=document.getElementById("mark");
+            var floatBox=document.getElementById("float-box");
+            var bigBox=document.getElementById("big-box");
+            var demo=document.getElementById("demo");
+            var smallBox=document.getElementById("small-box");
+            var img=document.getElementsByTagName("img")[1];
+            mark.onmouseover=function(){
+                floatBox.style.display="block";
+                bigBox.style.display="block";
+            };
+            mark.onmouseout=function(){
+                floatBox.style.display="none";
+                bigBox.style.display="none";
+            };
+            mark.onmousemove=function(_evt){
+                var evt=_evt||window.event;
+                var left=evt.clientX-50-floatBox.offsetWidth/2;
+                var top=evt.clientY-50-floatBox.offsetHeight/2;
+                if(left<0){
+                    left=0;
+                }else if(left>mark.offsetWidth-floatBox.offsetWidth){
+                    left=mark.offsetWidth-floatBox.offsetWidth;
+                }
+                if(top<0){
+                    top=0;
+                }else if(top>mark.offsetHeight-floatBox.offsetHeight){
+                    top=mark.offsetHeight-floatBox.offsetHeight;
+                }
+                floatBox.style.left=left+"px";
+                floatBox.style.top=top+"px";
+                var percentX=left/(mark.offsetWidth-floatBox.offsetWidth);
+                var percentY=top/(mark.offsetHeight-floatBox.offsetHeight);
+                img.style.left=-percentX*(img.offsetWidth-bigBox.offsetWidth)+"px";
+                img.style.top=-percentY*(img.offsetHeight-bigBox.offsetHeight)+"px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="demo">
+        <div id="small-box">
+            <div id="mark"></div>
+            <div id="float-box"></div>
+            <img src="macbook-small.jpg" />
+        </div>
+        <div id="big-box">
+            <img src="macbook-big.jpg"/>
+        </div>
+    </div>
+</body>
+</html>
