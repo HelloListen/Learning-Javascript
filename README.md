@@ -1,9 +1,12 @@
 # My JS Library
 
+#####对一些常用的效果进行了函数的封装  
 
 
-This is my Javascript Liarary.
+#####新增一些用原生JS写的效果
 
-*****
+1.焦点图片轮播  
 
-Keep updating..
+2.限时抢倒计时效果  
+
+3.放大镜效果(兼容IE)
