@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="imgs/mywebsite.ico" type="image/x-icon">
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <title>Listen Zhang | Resume</title>
+    <script src="scripts/jquery-1.11.3.min.js"></script>
+    <script src="scripts/jquery.fullPage.js"></script>
+    <script src="scripts/listen.js"></script>
+    <script>
+        $(function(){
+            $("#container").fullpage({
+                sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+                navigation:true
+            });
+        })
+    </script>
+</head>
+<body>
+    <header class="container nav-header">
+        <nav class="row">
+            <div class="col-md-4 col-md-offset-7">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="me.html">Me</a></li>
+                    <li class="active"><a href="resume.html">Resume</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="container">
+        <div class="section" id="section0">
+            <div class="person-info">
+                <div class="photo"><img src="imgs/me.jpg" /></div>
+                <div class="title">
+                    <h2>Hello, I'm Listen</h2>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="section1">
+            <h1>hello</h1>
+        </div>
+        <div class="section" id="section2">
+            <h1>hello</h1>
+        </div>
+        <div class="section" id="section3">
+            <h1>hello</h1>
+        </div>
+    </div>
+</body>
+</html>
