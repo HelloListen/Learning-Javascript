@@ -1,0 +1,22 @@
+nav.navigation{
+    background:rgba(0,0,0,0.1);
+    border: none;
+    font-weight:bold;
+    padding-right:30px;
+}
+div#navbar-collapse-main ul li a{
+    color: #fff;
+    font-size: 1.2em;
+}
+li.spotlight{
+    background: rgba(0,0,0,0.3);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+div#navbar-collapse-main ul li a:hover{
+    background: rgba(0,0,0,0.3);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
