@@ -35,7 +35,7 @@ div.person-info{
     text-align: center;
 }
 div.title h2{
-    font-size: 52px;
+    font-size: 4em;
     font-weight: bold;
     color: #fff;
 }
@@ -46,12 +46,12 @@ div.row{
     text-align:center;
 }
 div#section1 h1,div#section2 h1,div#section3 h1,div#section4 h1{
-    font-size: 52px;
+    font-size: 4.5em;
     color:#fff;
     text-shadow: 4px 4px 4px #777;
 }
 div#section1 a{
-    font-size: 34px;
+    font-size: 2.5em;
     font-weight: bold;
     color: #337ab7;
     text-decoration: none;
@@ -65,11 +65,11 @@ div#section1 a:hover{
     transition: all 0.5s ease-in-out 0.2s;
 }
 div#section1 p,div#section1 .watch{
-    font-size:20px;
+    font-size: 1.4em;
     color:#aee2d9;
 }
 div.project-content1{
-    margin-top:50px;
+    margin-top:4em;
 }
 div#section1 .watch{
     color: #337ab7;
@@ -82,7 +82,7 @@ div#section2{
     position: relative;
 }
 div#section2 h1{
-     margin-top:-100px;
+    margin-top: -2em;
  }
 div#section2 span.expert{
     width:120px;
@@ -95,7 +95,7 @@ div#section2 span.familiar{
 div#section2 span.familiar,div#section2 span.expert{
     background:darkslateblue;
     color: #fff;
-    font-size:16px;
+    font-size:1.2em;
     height:30px;
     line-height:30px;
     margin:5px;
@@ -106,48 +106,55 @@ div#section2 span.familiar,div#section2 span.expert{
     border-radius: 5px;
 }
 div#section3 dl {
-    color: #8470FF;
+    color:#aee2d9 ;
 }
 div#section3 dt.title{
-    font-size:20px;
+    font-size:1.4em;
     font-weight: bold;
 }
 div#section3 dd.duty{
-    font-size:26px;
+    font-size:2em;
     font-weight:bold;
     margin:5px 0;
 }
 div#section3 dd.business{
-    font-size:20px;
+    font-size:1.6em;
     font-weight:bold;
 }
 div#section3 div.working{
     margin-top:40px;
 }
 div#section3 h2{
-    font-size:28px;
-    color:#6A5ACD;
+    font-size:2.2em;
+    color:#ddd;
+}
+div#section3 h2 a{
+    color:#99FF33;
+    font-weight: bold;
 }
 div#section4 div.university,
 div#section4 div.major,
 div#section4 div.major-course,
 div#section4 div.certificate{
     margin: 10px 0;
-    color:#008B8B;
+    color:#aee2d9;
     font-weight: bold;
 }
 div#section4 div.university{
-    font-size:30px;
+    font-size:2.2em;
 }
 div#section4 div.major{
-    font-size: 24px;
+    font-size: 2em;
 }
 div#section4 div.major-course{
-    font-size: 20px;
+    font-size: 1.6em;
 }
 div#section4 div.certificate{
-    font-size:28px;
+    font-size:2em;
 }
 div#section4 div.education{
     margin-bottom:40px;
+}
+.notice{
+    color:#99FF33;
 }

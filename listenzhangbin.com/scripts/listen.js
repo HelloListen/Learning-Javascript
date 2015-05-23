@@ -1,7 +1,7 @@
 
 $(function(){
     $("#container").fullpage({
-        sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#B0C4DE','#aee2d9'],
+        sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#009999','#003366'],
         navigation:true
     });
 })

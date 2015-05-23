@@ -1,0 +1,40 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: #99CCFF;
+    position: relative;
+}
+h1{
+    font-size: 6em;
+    color: #fff;
+}
+div.welcome{
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 40%;
+    opacity: 0;
+    filter:alpha(opacity=0);
+}
+img{
+    width: 250px;
+    height: 250px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+@media screen and (max-width:480px){
+    img{
+        width: 150px;
+        height: 150px;
+    }
+    h1{
+        font-size:2em;
+    }
+}
