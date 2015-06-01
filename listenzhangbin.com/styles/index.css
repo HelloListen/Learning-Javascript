@@ -1,10 +1,11 @@
-*{
+*,html{
     padding: 0;
     margin: 0;
 }
 body{
     background: #99CCFF;
     position: relative;
+    height: 100%;
 }
 h1{
     font-size: 6em;
@@ -14,12 +15,14 @@ div.welcome{
     position: absolute;
     text-align: center;
     bottom: 0;
-    z-index: 1;
+    z-index: 10;
     left: 0;
     right: 0;
     top: 40%;
     opacity: 0;
     filter:alpha(opacity=0);
+    margin: 0;
+    padding: 0;
 }
 img{
     width: 250px;
@@ -28,7 +31,42 @@ img{
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
-
+canvas{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+nav.navigation{
+    background:rgba(0,0,0,0.1);
+    border: none;
+    font-weight:bold;
+    padding-right:30px;
+}
+div#navbar-collapse-main ul li a{
+    color: #fff;
+    font-size: 1.2em;
+}
+li.spotlight{
+    background: rgba(0,0,0,0.3);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+div#navbar-collapse-main ul li a:hover{
+    background: rgba(0,0,0,0.3);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.github{
+    font-size: 50px;
+    margin-top: 30px;
+    cursor: pointer;
+    color: cornflowerblue;
+}
+.github:hover{
+    color: #ffffff;
+}
 @media screen and (max-width:480px){
     img{
         width: 150px;
@@ -36,5 +74,15 @@ img{
     }
     h1{
         font-size:2em;
+    }
+}
+
+@media screen and (max-width:760px){
+    img{
+        width: 200px;
+        height: 200px;
+    }
+    h1{
+        font-size:2.5em;
     }
 }

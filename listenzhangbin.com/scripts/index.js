@@ -4,6 +4,5 @@ $(function(){
         $("canvas").fadeTo(1000,0,function(){
             $(".welcome").fadeTo(1000,1,function(){}).animate({"top":top+"px"},1000);
         });
-        //$(".welcome").fadeTo(1000,1,function(){}).animate({"top":top+"px"},1000);
     },10000)
 })

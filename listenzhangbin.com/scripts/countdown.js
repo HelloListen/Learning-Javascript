@@ -12,11 +12,11 @@ const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FF
 
 window.onload=function(){
 
-    WINDOW_WIDTH = document.documentElement.clientWidth
-    WINDOW_HEIGHT = document.documentElement.clientHeight
+    WINDOW_WIDTH = document.documentElement.clientWidth;
+    WINDOW_HEIGHT = document.documentElement.clientHeight;
 
     MARGIN_LEFT = Math.round(WINDOW_WIDTH /10);
-    RADIUS = Math.round(WINDOW_WIDTH * 4 / 5 / 108)-1
+    RADIUS = Math.round(WINDOW_WIDTH * 4 / 5 / 108)-1;
 
     MARGIN_TOP = Math.round(WINDOW_HEIGHT /5);
 
@@ -167,3 +167,4 @@ function renderDigit(x,y,num,cxt){
         }
     }
 }
+
