@@ -8,13 +8,26 @@
             padding: 0;
             margin: 0;
         }
+        span{
+            font-family: impact, arial, helvetica, sans-serif;
+            font-size: 66px;
+            color: rgb(0, 102, 153);
+        }
+        #time{
+            position: absolute;
+            left: 130px;
+            top: 360px;
+        }
     </style>
 </head>
 <body style="height: 100%;width: 100%;">
     <canvas id="canvas" style="height: 100%;width: 100%;">
         当前浏览器不支持canvas，请更换浏览器后再试
     </canvas>
+    <!--<div class="time">-->
+        <!--<span id="month"> </span> <span id="day"> </span> <span id="year"> </span>-->
+    <!--</div>-->
    <script src="digit.js"></script>
-   <script src="countdown1.js"></script>
+   <script src="countdown-seconds.js"></script>
 </body>
 </html>

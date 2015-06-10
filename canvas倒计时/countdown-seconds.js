@@ -3,7 +3,7 @@ var WINDOW_HEIGHT=768;
 var RADIUS=8;
 var MARGIN_TOP=60;
 var MARGIN_LEFT=30;
-//var endTime=new Date();
+var endTime=new Date();
 //endTime.setTime(endTime.getTime()+3600*1000);
 var curShowTimeSeconds=0;
 
@@ -11,6 +11,46 @@ var balls=[];
 const colors = ["#33B5E5","#0099CC","#AA66CC","#9933CC","#99CC00","#669900","#FFBB33","#FF8800","#FF4444","#CC0000"];
 
 window.onload=function(){
+    function getTime(){
+        var body=document.getElementsByTagName("body")[0];
+        var time=document.createElement("div");
+        time.setAttribute("id","time");
+        var d=document.createElement("span");
+        d.setAttribute("id","day");
+        var y=document.createElement("span");
+        y.setAttribute("id","year");
+        var m=document.createElement("span");
+        m.setAttribute("id","month");
+        body.appendChild(time);
+        time.appendChild(m);
+        time.appendChild(d);
+        time.appendChild(y);
+        var  year=endTime.getFullYear();
+        var  month=endTime.getMonth()+1;
+        var  day=endTime.getDate();
+        d.innerHTML=day;
+        y.innerHTML="&nbsp;"+"&nbsp;"+"&nbsp;"+year;
+        m.innerHTML=getM(month);
+    }
+    getTime();
+
+    function getM(month){
+        switch(month){
+            case 1: return "Jan";break;
+            case 2: return "Feb";break;
+            case 3: return "Mar";break;
+            case 4: return "Apr";break;
+            case 5: return "May";break;
+            case 6: return "Jun";break;
+            case 7: return "Jul";break;
+            case 8: return "Aug";break;
+            case 9: return "Sep";break;
+            case 10: return "Oct";break;
+            case 11:return "Nov";break;
+            case 12: return "Dec";break;
+        }
+    }
+
 
     WINDOW_WIDTH = document.documentElement.clientWidth
     WINDOW_HEIGHT = document.documentElement.clientHeight
