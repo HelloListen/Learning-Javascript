@@ -1,0 +1,41 @@
+*{
+    padding:0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+    width: 309px;
+}
+ul li{
+    width: 101px;
+    height: 30px;
+    border: 1px solid #cccccc;
+    float: left;
+    cursor: pointer;
+}
+#container{
+    width: 316px;
+    height: 330px;
+    margin: 50px auto;
+}
+img{
+    width: 309px;
+    height: 300px;
+}
+.clr{
+    clear: both;
+}
+#container .content{
+    width: 309px;
+    height: 300px;
+    overflow: hidden;
+}
+.active{
+    background: #ce8483;
+}
+div.content{
+    display: none;
+}
+div.spotlight{
+    display: block;
+}

@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html{
+    height: 100%;
+}
+body{
+    background: url(body.png) center top;
+    height: 100%;
+}
+#mask{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    opacity: 0.5;
+    filter:alpha(opacity=50);
+    display: none;
+}
+#searchTip{
+    width: 980px;
+    height: 800px;
+    left:50%;
+    margin-left:-490px;
+    position: absolute;
+    display: none;
+}
+#searchTip div{
+    position: absolute;
+    display: none;
+}
+#searchTip div a{
+    position: absolute;
+    width: 95px;
+    cursor: pointer;
+    height: 32px;
+    text-indent: -999px;
+    overflow: hidden;
+
+}
+#searchTip div span{
+    height: 30px;
+    position: absolute;
+    width: 30px;
+    text-indent: -999px;
+    overflow: hidden;
+    cursor: pointer;
+}
+#searchTip .stepA{
+    width: 745px;
+    height: 329px;
+    top: 131px;
+    left: -9px;
+    background: url(guide11.png);
+}
+.stepA a{
+    top: 231px;
+    left: 490px;
+}
+.stepA span{
+    top: 144px;
+    left: 683px;
+}
+.stepB{
+    width: 647px;
+    height: 405px;
+    top: 2px;
+    left: 324px;
+    background: url(guide21.png);
+}
+.stepB a{
+    top: 308px;
+    left: 146px;
+}
+.stepB span{
+    top: 196px;
+    right: 285px;
+}
+.stepC{
+    width: 654px;
+    height: 257px;
+    background: url(guide31.png);
+    top: 294px;
+    left: 318px;
+}
+.stepC a{
+    top: 155px;
+    left: 400px;
+}
+.stepC span{
+    top: 44px;
+    right: 35px;
+}
+.stepD{
+    width: 558px;
+    height: 348px;
+    background: url("guide41.png");
+    top: 78px;
+    left: 155px;
+}
+.stepD a{
+    top: 246px;
+    left: 304px;
+}
+.stepD span{
+    top: 135px;
+    right: 35px;
+}
+.stepE{
+    width: 397px;
+    height: 342px;
+    background: url("guide51.png");
+    top: 79px;
+    left: 250px;
+}
+.stepE a{top:245px; left:153px;}

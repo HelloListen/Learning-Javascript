@@ -1,0 +1,22 @@
+ul{
+    list-style:none;
+}
+#form{
+    margin: 50px auto;
+    width: 400px;
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+form{
+    width: 350px;
+    margin: 10px auto;
+}
+#submit{
+    width: 160px;
+    margin-top: 15px;
+}
+input{
+    margin-right: 10px;
+}
