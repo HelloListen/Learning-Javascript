@@ -1,0 +1,42 @@
+div.wrap-article{
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+article p{
+    text-indent: 2em;
+}
+div.heading{
+    margin: 50px 0;
+}
+div.wrap-article article p{
+    margin: 20px 0;
+    line-height: 26px;
+}
+div.wrap-article article p.last{
+    margin-bottom: 90px;
+}
+#disqus_thread{
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+code{
+    background:#f4f4f6;
+    border: 1px solid #d0d0d0;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding:1px;
+    font-size:14px;
+    font-family: Consolas,"Courier New",monospace;
+}
+
+h2.article-heading{
+    font-size: 20px;
+}
+@media screen and (max-width: 520px){
+    .nav{
+        display: none;
+    }
+}

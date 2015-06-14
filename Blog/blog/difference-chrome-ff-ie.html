@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="listen zhangbin" />
+    <meta name="keywords" content="site,chrome,firefox,ie,兼容性问题,js,javascript,jQuery">
+    <meta name="description" content="Chrome,FF,IE11下的一些兼容性问题">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="../imgs/mywebsite.ico" type="image/x-icon">
+    <title>Chrome,FF,IE11下的一些兼容性问题</title>
+    <link href="styles/blog.css" rel="stylesheet" />
+    <link href="styles/font-awesome.min.css" rel="stylesheet" />
+    <link href="styles/common.css" rel="stylesheet" />
+    <!--<link href="http://listenzhangbin.com/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet" />-->
+</head>
+<body>
+    <header class="jumbotron">
+        <div class="container">
+            <div class="title">
+                <a href="http://listenzhangbin.com/blog.html"><h1>Listen</h1></a>
+                <p>keep hungry, keep foolish</p>
+            </div>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="http://listenzhangbin.com#disqus_thread">首页</a></li>
+                    <li class="nav"><a href="http://listenzhangbin.com/project.html">作品</a></li>
+                    <li class="nav"><a href="mailto:listenzhangbin@163.com">联系我</a></li>
+                    <li class="nav"><a href="#">博客源代码</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <div class="wrap-article">
+            <div class="heading">
+                <h1>Chrome,FF,IE11下的一些兼容性问题</h1>
+            </div>
+            <article>
+                <time>2015-6-14</time>
+                <p>
+                    折腾了一个月的时间，总算是初步的建好了个人的网站和博客，在本次建站过程中，最让人头疼的问题之一，
+                    就是兼容性的问题，尤其是IE的兼容性。所以碰到兼容性的问题只能把它记录下来，一点点的积累，
+                    本篇就来总结一下我本次建站过程中碰到的兼容性问题。
+                </p>
+                <h2 class="article-heading">一、Chrome下document.documentElement.scrollTop值无法读取</h2>
+                <p>
+                    本来是想写一个效果，当滚动条滚动到某个位置后，页面的右下角会出现一个按钮，点击这个按钮就会滚动至页面的顶部，
+                    当滚动条滚动回顶部后，按钮消失，这是现在网站非常常见的效果，也非常实用，能提升用户的体验度，特别是针对页面较长的网站。
+                </p>
+                <p>
+                    要实现这个效果其实也非常简单，思路就是监测滚动条的位置，当滚动条的scrollTop值超过一定数值后，按钮出现，
+                    并给按钮绑定点击事件，点击后scrollTop值变为0，最后当滚动条滚动到顶部后，由于scrollTop值为0，
+                    按钮消失，如果用户再往下滚动，则重复这个循环。
+                </p>
+                <p>
+                    知道了这个效果的逻辑后，再用代码来实现就很简单了。这里我选择了用jQuery来实现，可以有动画效果，而不是一下子回到顶部。
+                    首先是根据滚动条的位置来决定按钮是否显示，把页面的滚动条的值赋给一个变量top，用scroll事件来触发，
+                    <code>var top=$("html").scrollTop()</code>，并用<code>console.log(top)</code>来验证是否获取到了top值，
+                    首先是在Firefox下，可以看到在FireBug中当滚动滚动条时，会不断的有top的值出现，这说明scrollTop值取到了。
+                </p>
+                <p>
+                    但是当换成Chrome浏览器时，奇怪的事情发生了，无论怎么滚动滚动条，top的值始终为0，也就是说scrollTop的值没取到，
+                    要解决这个问题，其实也非常简单，只要在把变量top改成<code>var top=$("html").scrollTop()||$("body").scrollTop()</code>即可。
+                    在绑定点击事件时也要写成<code>$("html,body").animate({scrollTop:"0"},500)</code>,这样无论是在Chrome、Firefox还是IE下，
+                    都能完成回到顶部的效果。
+                </p>
+                <h2 class="article-heading">二、CSS3中@font-face属性在IE11下的字体兼容性</h2>
+                <p>
+                    CSS3中加入了许多新的属性，非常的cool，我个人也非常喜欢，其中的@font-face属性可以让用户使用开发者自定义的字体，
+                    而不是像以前一样，必须要使用用户电脑中本地有的字体。@font-face属性的使用方法就是导入服务器上的字体，定义字体的font-family，
+                    设置字体格式、路径及样式即可使用，也非常的方便。
+                </p>
+                <p>
+                    但是美中不足的是，字体的格式存在兼容性的问题。一般现在常见的格式有ttf，otf，woff，eot，svg等格式，对应不同平台支持也不同，
+                    这次在建站的过程我也是用了自定义的字体，非常的cool，但是在使用的过程中发现，我使用的ttf格式字体在Firefox及Chrome下都能正常显示，
+                    但是到了IE11中却没有显示，使用的还是默认字体，到网上查了资料都说IE是兼容ttf字体的，这又让我很奇怪，难道是我的使用有问题？
+                    折腾了很久后最终在IE上还是没能正常显示（坑爹的IE）。
+                </p>
+                <p>
+                    最后我的解决办法是同时导入ttf，tf，woff及eot等多种格式，这样就能兼容各种不同的平台及浏览器，但是这样的缺点是字体的选择就少了，
+                    网上的字体大多数是一种格式或者两种格式，提供多种格式的字体非常少，但毕竟比不能用好。这样一来，@font-face属性在IE11下的字体兼容性问题也算是解决了。
+                </p>
+                <p class="last">
+                    最后，兼容性问题确实是一个让人头疼的问题，解决兼容性问题的能力要慢慢积累，碰到一个就解决一个，然后把它记录下来，相信量变会带来质变，
+                    这次的兼容性问题就总结到这里，以后碰到再补充。
+                </p>
+            </article>
+        </div>
+    </main>
+    <div class="wrap">
+        <div id="disqus_thread"></div>
+    </div>
+    <footer>
+        <div class="wrap-footer">
+            <div class="container-foot">
+                <div class="foot">
+                    <h1>Listen</h1>
+                </div>
+            </div>
+            <div class="container-info">
+                <div class="info">
+                    <div class="contact">
+                        <a href="http://github.com/HelloListen"><i class="fa fa-github-square"></i></a>
+                        <a href="mailto:listenzhangbin@163.com"><i class="fa fa-envelope"></i></a>
+                        <a href="http://listenzhangbin.com"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                    <div class="right">
+                        <p>&copy; 2015 Coded by <a href="http://listenzhangbin.com">Listen.zhang</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="back" title="回到顶部">
+        <i class="fa fa-chevron-up"></i>
+    </div>
+
+    <script>
+        var disqus_shortname='listenzhang';
+        (function(){
+            var dsq=document.createElement("script");dsq.type='text/javascript';dsq.async=true;
+            dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';
+            (document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(dsq);
+        })();
+    </script>
+
+<script src="scripts/jquery-1.11.3.min.js"></script>
+<script src="scripts/blog.js"></script>
+</body>
+</html>
