@@ -2,7 +2,7 @@
 
 ####JS&jQuery网页交互效果及动画
 
-####My site: <a>http://listenzhangbin.com</a>
+####My Blog: <a>http://listenzhangbin.com</a>
 
 1.焦点图片轮播  
 
@@ -20,7 +20,5 @@
 
 8.2048-custom
 
-======
-####My blog: <a>http://listenzhangbin.com/blog.html</a>
 
 
